@@ -1,0 +1,56 @@
+.nav-container {
+    margin-top: 20px;
+  border: 2px solid rgb(19, 19, 39);
+  border-radius: 20px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 70%;
+  max-width: 1200px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center nav-inside-components */
+  padding: 10px 20px;
+  background-color: white; /* ose sipas dizajnit */
+  box-sizing: border-box;
+}
+
+.nav-inside-components {
+  display: flex;
+  flex-wrap: nowrap; /* 👈 mos e lejo me thy */
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-pages {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1; /* zgjero listën sa munde */
+}
+
+.nav-pages li a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.searchbar {
+  flex: 0 0 20%; /* fikso 20% width */
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+}

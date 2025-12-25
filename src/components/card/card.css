@@ -1,0 +1,16 @@
+.card-container{
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.card-image img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+.card-desc{
+    border: 1px solid red;
+}
