@@ -1,56 +1,112 @@
+/* ===== BODY (background për glass) ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #8e8e8e, #b5b5b5);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+}
+
+/* ===== NAV CONTAINER – CLEAR GLASS ===== */
 .nav-container {
-    margin-top: 20px;
-  border: 2px solid rgb(19, 19, 39);
-  border-radius: 20px;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+    width:70%;
+    padding: 12px 24px;
 
-  width: 70%;
-  max-width: 1200px;
-  z-index: 1000;
+    position: fixed; /* Fiks lart */
+    top: 12px;       /* pak distance nga maja e faqes */
+    left: 50%;       /* për ta qendruar horizontal */
+    transform: translateX(-50%); /* qendër horizontale */
 
-  display: flex;
-  align-items: center;
-  justify-content: center; /* center nav-inside-components */
-  padding: 10px 20px;
-  background-color: white; /* ose sipas dizajnit */
-  box-sizing: border-box;
+    z-index: 100;
+
+    background: rgba(255, 255, 255, 0.18); 
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none;
+
+    overflow: hidden;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+/* ===== GLASS REFLECTION ===== */
+.nav-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.08),
+        transparent 65%
+    );
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ===== INNER NAV CONTENT ===== */
 .nav-inside-components {
-  display: flex;
-  flex-wrap: nowrap; /* 👈 mos e lejo me thy */
-  gap: 20px;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 }
 
+/* ===== NAV PAGES ===== */
 .nav-pages {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex: 1; /* zgjero listën sa munde */
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-pages li a {
-  text-decoration: none;
-  font-weight: 500;
+    text-decoration: none;
+    color: #000000dd; /* subtle black */
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
+.nav-pages li a:hover {
+    color: #000;
+}
+
+/* ===== SEARCHBAR ===== */
 .searchbar {
-  flex: 0 0 20%; /* fikso 20% width */
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
+    outline: none;
 }
 
-
-/* MOBILE */
-@media (max-width: 768px) {
+/* ===== LOGIN BUTTON ===== */
+.nav-inside-components button {
+    padding: 6px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
+
+.nav-inside-components button:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+.logreg button{
+  margin-left: 10px;
+}
+
+/* ===== RESPONSIVE ===== */

@@ -1,16 +1,88 @@
-.card-container{
-    width: 400px;
-    height: 400px;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 25px;
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* neutral background që e tregon qartësinë */
+    background: rgb(180, 180, 180);
 }
 
-.card-image img{
+.all-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-container img {
+    width: 30px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* ===== ULTRA CLEAR GLASS CARD ===== */
+.card-container {
+    margin-left: 10px;
+
+    width: 300px;
+    height: 300px;
+    border-radius: 28px;
+
+    /* SHUMË CLEAR – gati transparent */
+    background: rgba(185, 185, 185, 0.065);
+
+    /* ZERO BLUR */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    /* THIN GLASS EDGE */
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    /* REAL GLASS DEPTH */
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== REAL GLASS REFLECTION (VERY SUBTLE) ===== */
+.card-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background: linear-gradient(110deg,
+            rgba(255, 255, 255, 0.45),
+            rgba(255, 255, 255, 0.08) 35%,
+            transparent 65%);
+
+    pointer-events: none;
+}
+
+/* ===== IMAGE ===== */
+.card-image {
+    height: 70%;
+}
+
+.card-image img {
     width: 100%;
-    object-fit: cover;
-    border-radius: 25px;
+    height: 100%;
+    object-fit: contain;
 }
-.card-desc{
-    border: 1px solid red;
+
+/* ===== CLEAR GLASS BOTTOM ===== */
+.card-desc {
+    height: 30%;
+    padding: 14px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
 }
+
+/*HOVER*/
+
+/* ===== GLASS HOVER EFFECT ===== */

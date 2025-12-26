@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/navbar/Navbar'
-import Card from './components/card/Card'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import Home from './pages/home/Home';
+import CategoryList from './components/category/CategoryList';
+import AddCategory from './components/category/AddCategory';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='head-container'>
+    <Router>
       <Navbar />
-      <Card />
-    </div>
-
-
-  )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<CategoryList />} />
+        <Route path="/Category/Create" element={<AddCategory />} />
+        {/* mund të shtosh About, Contact, Careers */}
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
